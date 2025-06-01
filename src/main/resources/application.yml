@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: backend
+  main:
+    banner-mode: off
+  datasource:
+    url: jdbc:postgresql://${ENV_AWS_RDS_ENDPOINT}:${ENV_PORT_RDS}/${ENV_DB_NAME}
+    username: ${ENV_USERNAME_RDS}
+    password: ${ENV_PASSWORD_RDS}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8000
+
+logging:
+  level:
+    root: error
